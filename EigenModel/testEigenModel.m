@@ -1,5 +1,5 @@
 function [results,distances] = testEigenModel(train, test, limit)
-% TEST  Create and test an Eigenface model with train and test data.
+% TESTEIGENMODEL  Create and test an Eigenface model with train and test data.
     % create model with train data
     disp('Building model with ' + string(length(train.names)) + ' images.'); tic
     [model.weights,model.names,model.eigenfaces] = createEigenModel(train.images,train.names,limit);

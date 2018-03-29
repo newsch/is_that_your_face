@@ -1,8 +1,8 @@
 function [namedWeights,Names,EigenFaces] = createEigenModel(faces, names, limit)
-% CREATEEIGENMODEL  Create model for Eigenface recognition.
+% CREATEEIGENMODEL  Create a model for Eigenface recognition.
     if nargin < 3
-        [h,w,d] = size(faces);  % set limit to max if none given
-        limit = d;
+        [h,w,d] = size(faces);
+        limit = d;  % set limit to max if none given
     end
     sFaces = stackim(faces);  % faces stacked in column vectors
     nFaces = (sFaces - mean(sFaces,1))./sqrt(length(sFaces(:,1)));  % normalize faces
