@@ -41,15 +41,15 @@ disp('Total time was ' + string(modelTime) + ' seconds.')
 
 % test model with test data
 disp('Running tests.'); tic
-results = string(zeros(5,length(test.names)));
-distances = zeros(5,length(test.names));
+results = string(zeros(length(model.names),length(test.names)));
+distances = zeros(length(model.names),length(test.names));
 testTimes = zeros(length(test.names),1);
 for i = 1:length(test.names)
     avgStart = tic;
     [D,Ni] = analyzeImage(test.images(:,:,i),model.weights,model.eigenfaces);
     testTimes(i) = toc(avgStart);
-    results(:,i) = string(model.names(Ni(1:5)));  % save 5 best names
-    distances(:,i) = D(1:5);  % save 5 best distances
+    results(:,i) = string(model.names(Ni));  % save all name guesses
+    distances(:,i) = D;  % save all distances
 end
 avgtime = mean(testTimes);
 testTime = toc;
