@@ -33,7 +33,7 @@ disp('Differences between names of train and test data:')
 setdiff(trainData.names,testData.names)
 setdiff(testData.names,trainData.names)
 
-[results,distances] = testEigenModel(trainData,testData,limit);
+[results,distances,times] = testEigenModel(trainData,testData,limit);
 % analyze results
 correct = results(1,:) == testData.names;  % check if first guess was correct
 disp('Results: ' + string(sum(correct)) + ' out of ' + string(length(results(1,:))) + ' correct guesses.')

@@ -1,4 +1,4 @@
-function [results,distances] = testEigenModel(train, test, limit)
+function [results,distances,times] = testEigenModel(train, test, limit)
 % TESTEIGENMODEL  Create and test an Eigenface model with train and test data.
     % create model with train data
     disp('Building model with ' + string(length(train.names)) + ' images.'); tic
@@ -24,5 +24,6 @@ function [results,distances] = testEigenModel(train, test, limit)
     disp('Finished testing model.')
     disp('Total time was ' + string(testTime) + ' seconds.')
     disp('Average time was ' + string(avgtime) + ' seconds.')
+    times = [modelTime testTime avgtime];
 end
 
