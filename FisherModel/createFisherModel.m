@@ -28,7 +28,7 @@ function [classedWeights,Classes,FisherFaces] = createFisherModel(faces, EigenFa
     TotalAverageFace = mean(allWeights,2);  % create average face of all faces, not accounting for difference in class sizes
 
     Sb = zeros(numDims);
-    for i = 1:66
+    for i = 1:numClasses
         numImagesInClass = sum(ic==i);
         Sb = Sb + (numImagesInClass*(AverageClassFaces(:,i)-TotalAverageFace)*(AverageClassFaces(:,i)-TotalAverageFace).');
     end

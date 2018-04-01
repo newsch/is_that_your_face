@@ -1,4 +1,4 @@
-function [results,distances,times] = testFisherModel(train, test, limit, EigenFaces)
+function [results,distances,times] = testFisherModel(train, test, EigenFaces,limit)
 % TESTFISHERMODEL  Create and test an Fisherface model with train and test data.
 % results: best estimates of classification
 % distances: calculated distances for each estimate
