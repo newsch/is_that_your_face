@@ -9,7 +9,7 @@ load classdata.mat
 %% analyzing accuracy
 % setup data and values
 testI = y.picnum ~= 0;
-trainI = ones(size(y.picnum));
+trainI = true(size(y.picnum));
 testData.images = grayfaces(:,:,testI);
 testData.classes = y.name(testI);
 trainData.images = grayfaces(:,:,trainI);
