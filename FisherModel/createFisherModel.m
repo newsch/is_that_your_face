@@ -15,19 +15,6 @@ function [classedWeights,Classes,FisherFaces] = createFisherModel(faces, EigenFa
     allWeights = EigenFaces'*nFaces;
     limitedWeights = allWeights(end-limit+1:end,:);
     
-    %% Create Weights and Eigenfaces for Fisherface analysis
-    faces = grayfaces;
-    names = Names;
-    limit = 132;
-    sFaces = stackim(faces);  % faces stacked in column vectors
-    nFaces = (sFaces - mean(sFaces,1))./sqrt(length(sFaces(:,1)));  % normalize faces
-    fCovarriance = nFaces'*nFaces;  % covarriance matrix of faces
-    [V,D] = eig(fCovarriance);
-    AllEigenFaces = sFaces*fliplr(V);  % flip Eigenfaces so strongest is first
-    EigenFaces = AllEigenFaces(:,1:limit);  % limit eigenfaces (and weights indirectly)
-    allWeights = linsolve(EigenFaces,nFaces);  % generate weights for training set
-    % allWeights = EigenFaces\nFaces;
-    limitedWeights = allWeights(end-limit+1:end,:);
     %% Find W_opt using Sb and Sw
     % Sb of faces in Eigenspace
     AverageClassFaces = zeros(132,66);
