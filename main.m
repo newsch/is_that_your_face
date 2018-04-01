@@ -1,5 +1,5 @@
 % main.m  Facial Recognition with EigenFaces
-% Authors: Luis Zuiniga, Evan Lloyd New-Schmidt
+% Authors: Luis Zuñiga, Evan Lloyd New-Schmidt
 
 clear all
 import EigenModel.*
