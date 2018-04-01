@@ -10,7 +10,9 @@ function [namedWeights,Names,EigenFaces] = createEigenModel(faces, names, limit)
     [V,D] = eig(fCovarriance);
     AllEigenFaces = sFaces*fliplr(V);  % flip Eigenfaces so strongest is first
     EigenFaces = AllEigenFaces(:,1:limit);  % limit eigenfaces (and weights indirectly)
-    allWeights = linsolve(EigenFaces,nFaces);  % generate weights for training set
+%     allWeights = linsolve(EigenFaces,nFaces);  % generate weights for training set
+%     allWeights = EigenFaces\nFaces;
+    allWeights = EigenFaces'*nFaces;
     limitedWeights = allWeights(end-limit+1:end,:);
     %% organize by name and calculate average weights
     [Names,ia,ic] = unique(names);  % get unique names and their indices
