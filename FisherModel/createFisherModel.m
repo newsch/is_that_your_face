@@ -47,7 +47,8 @@ function [classedWeights,Classes,FisherFaces] = createFisherModel(faces, EigenFa
     %% organize by name and calculate average weights
     [Classes,ia,ic] = unique(classes);  % get unique names and their indices
     FisherFaces = EigenFaces*Wopt;
-    fisherWeights = FisherFaces'*stackim(faces);
+    nFisherFaces = (FisherFaces - mean(FisherFaces,1)); %./sqrt(length(sFaces(:,1)));  % normalize faces
+    fisherWeights = nFisherFaces'*stackim(faces);
     classedWeights = zeros(length(fisherWeights(:,1)),length(Classes));
     for i = 1:length(Classes)
         weightsToAverage = fisherWeights(:,ic == i);  % get all weights under the same class (person)
