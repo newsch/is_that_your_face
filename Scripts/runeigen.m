@@ -1,4 +1,4 @@
-% main.m  Facial Recognition with EigenFaces
+% runeigen.m  run testEigenModel
 % Authors: Luis Zuñiga, Evan Lloyd New-Schmidt
 
 clear all

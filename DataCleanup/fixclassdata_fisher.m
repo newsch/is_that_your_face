@@ -1,5 +1,4 @@
 % fixclassdata_fisher.m  Clean up the classdata_fisher.mat dataset
-% You should probably run 'clear all' before running this.
 
 clear all
 try

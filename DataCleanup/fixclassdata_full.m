@@ -1,5 +1,4 @@
 % fixclassdata_full.m  Clean up the classdata_full.mat dataset
-% You should probably run 'clear all' before running this.
 
 clear all
 try

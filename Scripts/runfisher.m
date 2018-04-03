@@ -1,4 +1,5 @@
-% fishermain.m  run testFisherModel
+% runfisher.m  run testFisherModel
+% Authors: Luis Zuñiga, Evan Lloyd New-Schmidt
 
 clear all
 import FisherModel.*

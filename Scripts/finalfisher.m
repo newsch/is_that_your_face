@@ -1,4 +1,5 @@
-% fishertest.m  run testFisherModel
+% finalfisher.m  run the fisher model with the final train/test datasets
+% Authors: Luis Zuñiga, Evan Lloyd New-Schmidt
 
 clear all
 import FisherModel.*

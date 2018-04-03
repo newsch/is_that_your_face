@@ -1,4 +1,4 @@
-% eigentest.m  Facial Recognition with EigenFaces
+% runeigen.m  run the eigen model with the final train/test datasets
 % Authors: Luis Zuñiga, Evan Lloyd New-Schmidt
 
 clear all
