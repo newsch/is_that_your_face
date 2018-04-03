@@ -5,14 +5,13 @@ function [namedWeights,Names,EigenFaces] = createEigenModel(faces, names, limit)
         limit = d;  % set limit to max if none given
     end
     sFaces = stackim(faces);  % faces stacked in column vectors
-    nFaces = (sFaces - mean(sFaces,1))./sqrt(length(sFaces(:,1)));  % normalize faces
+    mFaces = sFaces - mean(sFaces,1);
+    nFaces = mFaces./sqrt(length(sFaces(:,1)));  % normalize faces
     fCovarriance = nFaces'*nFaces;  % covarriance matrix of faces
     [V,D] = eig(fCovarriance);
-    AllEigenFaces = sFaces*fliplr(V);  % flip Eigenfaces so strongest is first
+    AllEigenFaces = nFaces*fliplr(V);  % flip Eigenfaces so strongest is first
     EigenFaces = AllEigenFaces(:,1:limit);  % limit eigenfaces (and weights indirectly)
-%     allWeights = linsolve(EigenFaces,nFaces);  % generate weights for training set
-%     allWeights = EigenFaces\nFaces;
-    allWeights = EigenFaces'*nFaces;
+    allWeights = EigenFaces'*mFaces;  % generate weights for training set
     limitedWeights = allWeights(end-limit+1:end,:);
     %% organize by name and calculate average weights
     [Names,ia,ic] = unique(names);  % get unique names and their indices
